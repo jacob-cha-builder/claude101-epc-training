@@ -268,9 +268,8 @@
     <a href="#s5-3">5-3. Skills</a>
 
     <div class="group-label">3. 확장</div>
-    <a href="#s6-1">6-1. 도구 연결</a>
-    <a href="#s6-2">6-2. Enterprise Search</a>
-    <a href="#s6-3">6-3. Research mode</a>
+    <a href="#s6-1">6-1. Enterprise Search</a>
+    <a href="#s6-2">6-2. Research mode</a>
 
     <div class="group-label">4. 활용 · 실습</div>
     <a href="#s7">7. 역할별 활용 사례</a>
@@ -299,7 +298,7 @@
         <li>Claude의 기본 사용법을 설명할 수 있다</li>
         <li>좋은 프롬프트의 구조를 이해하고 작성할 수 있다</li>
         <li>Projects, Artifacts, Skills의 차이를 설명할 수 있다</li>
-        <li>외부 도구 연결, 사내 검색, 리서치 모드의 쓰임새를 구분할 수 있다</li>
+        <li>사내 검색, 리서치 모드의 쓰임새를 구분할 수 있다</li>
         <li>설계·구매·시공·안전·품질 등 자신의 담당 업무에 맞는 Claude 활용 방식을 선택할 수 있다</li>
       </ol>
     </section>
@@ -633,27 +632,6 @@
 
     <section class="block" id="s6-1">
       <span class="section-badge">6-1</span>
-      <h2 class="h-main">도구 연결하기 (Connectors)</h2>
-      <p class="body-text">Claude는 사내에서 실제로 쓰는 업무 시스템과 연결될 때 진짜 가치가 커집니다. 다만 사내 보안 환경에서는 개인용 외부 서비스(Gmail, 개인 Google Drive 등)는 연결 대상이 아니며, IT/보안팀이 승인한 사내 시스템에 한해서만 연결을 검토할 수 있습니다.</p>
-      <ul class="body-list">
-        <li>사내 자료 찾기 시간 감소</li><li>반복 정리 업무 감소</li><li>협업 맥락 유지</li><li>작업 전환 비용 감소</li>
-      </ul>
-      <div class="app-mock-list">
-        <div class="aml-row"><span class="aml-icon">D</span><span class="aml-name">사내 문서관리시스템 (EDMS)</span><span class="aml-status on">연결 가능 (IT 승인 시)</span></div>
-        <div class="aml-row"><span class="aml-icon">M</span><span class="aml-name">사내 메일/그룹웨어 (Outlook 등)</span><span class="aml-status on">연결 가능 (IT 승인 시)</span></div>
-        <div class="aml-row"><span class="aml-icon">S</span><span class="aml-name">사내 협업툴 (Slack/Teams 등)</span><span class="aml-status on">연결 가능 (IT 승인 시)</span></div>
-        <div class="aml-row"><span class="aml-icon">G</span><span class="aml-name">개인용 Gmail / 개인 Google Drive</span><span class="aml-status off">연결 불가 (사내 정책상 제외)</span></div>
-      </div>
-      <div class="prompt-box"><span class="label">💬 연결된 도구 활용</span>"사내 그룹웨어 캘린더에서 이번 주 일정을 확인해서, 설계검토회의가
-겹치는 시간대가 있는지 알려줘."
-
-"사내 문서관리시스템에서 '승인 요청'이 포함된 발주 관련
-문서만 정리해줘."</div>
-      <div class="callout warn"><span>⚠️</span><div><b>주의</b>연결 대상은 회사가 운영·승인한 사내 시스템으로 한정합니다. 개인 이메일이나 개인 클라우드 계정은 연결하지 않으며, 연결 범위와 권한은 반드시 IT/보안팀이 사전에 설정합니다. 도면, 계약금액 등 민감정보가 포함된 도구 연결은 별도 협의를 거쳐야 합니다.</div></div>
-    </section>
-
-    <section class="block" id="s6-2">
-      <span class="section-badge">6-2</span>
       <h2 class="h-main">Enterprise Search</h2>
       <p class="body-text">사내 정보가 여러 곳에 흩어져 있을 때 유용합니다. 문서, 위키, 채팅, 저장소에서 관련 정보를 찾는 데 적합합니다.</p>
       <div class="prompt-box"><span class="label">💬 사내 검색</span>"우리 팀의 고온·고압 배관 설계 기준 문서를 찾아줘.
@@ -674,8 +652,8 @@
       <div class="callout warn"><span>⚠️</span><div><b>주의</b>검색 결과는 참고용입니다. 설계 변경이나 발주 등 중요한 의사결정 전에는 반드시 원문 출처를 직접 열어 확인하세요.</div></div>
     </section>
 
-    <section class="block" id="s6-3">
-      <span class="section-badge">6-3</span>
+    <section class="block" id="s6-2">
+      <span class="section-badge">6-2</span>
       <h2 class="h-main">Research mode for deep dives</h2>
       <p class="body-text">한 번에 끝나는 질문이 아니라, 여러 자료를 모아 분석해야 하는 일에 적합합니다. 벤더 비교, 원자재 시황, 규격/인증 비교에 유리합니다.</p>
       <div class="prompt-box"><span class="label">💬 리서치 모드</span>"국내외 배관재 공급업체 상위 3곳의 최근 1년간 가격
