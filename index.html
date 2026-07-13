@@ -206,6 +206,30 @@
   .aml-status{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;flex-shrink:0;}
   .aml-status.on{background:var(--tip-bg);color:var(--tip-text);}
   .aml-status.off{background:#F1EFE8;color:var(--text-secondary);}
+
+  /* 모드 탭 (Chat / Cowork / Code 실전 예시) */
+  .tabs-nav{display:flex;gap:4px;border-bottom:1.5px solid var(--border);margin:0 0 22px;flex-wrap:wrap;}
+  .tabs-nav button{background:none;border:none;padding:10px 20px;font-size:calc(16px * var(--scale));font-weight:700;color:var(--text-muted);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1.5px;font-family:var(--font-body);}
+  .tabs-nav button:hover{color:var(--accent-dark);}
+  .tabs-nav button.active{color:var(--accent-dark);border-bottom-color:var(--accent);}
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;}
+
+  .step-list{margin:0 0 20px;padding:0;list-style:none;}
+  .step-list li{display:flex;gap:12px;align-items:flex-start;padding:7px 0;font-size:calc(15.5px * var(--scale));color:var(--text-primary);}
+  .step-list .step-num{width:24px;height:24px;border-radius:50%;background:var(--tip-bg);color:var(--tip-text);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;}
+
+  .code-diff{background:var(--code-bg);color:var(--code-text);border-radius:var(--radius);padding:18px 20px;font-family:var(--font-mono);font-size:calc(14.5px * var(--scale));line-height:1.75;margin:0 0 20px;overflow-x:auto;white-space:pre;}
+  .code-diff .del{color:#F0A0A0;display:block;}
+  .code-diff .add{color:#9FD8A8;display:block;}
+  .code-diff .ctx{opacity:.65;display:block;}
+
+  .mini-chart{margin:14px 0 6px;}
+  .mini-chart-row{display:flex;align-items:center;gap:10px;margin-bottom:9px;font-size:calc(13.5px * var(--scale));color:var(--text-secondary);}
+  .mini-chart-row .mc-label{width:44px;flex-shrink:0;}
+  .mini-chart-row .mc-bar-wrap{flex:1;background:#EDEBE1;border-radius:4px;height:14px;overflow:hidden;}
+  .mini-chart-row .mc-bar{height:100%;background:var(--accent);border-radius:4px;}
+  .mini-chart-row .mc-val{width:40px;text-align:right;flex-shrink:0;font-weight:700;color:var(--text-primary);}
 </style>
 </head>
 <body>
@@ -416,24 +440,83 @@
         <li><b>Projects로 작업을 묶을 수 있습니다.</b> 관련된 작업들을 하나의 작업공간에 모아 맥락을 유지합니다</li>
       </ul>
 
-      <h3 class="h-sub">Cowork와 Code, 무엇이 다른가</h3>
-      <p class="body-text">이름이 비슷해서 헷갈리기 쉽지만, 다루는 대상이 완전히 다릅니다.</p>
-      <table class="doc-table">
-        <tr><th>구분</th><th>Cowork</th><th>Code</th></tr>
-        <tr><td>다루는 대상</td><td>문서, 파일, 보고서, 스프레드시트 등 <b>일반 업무</b></td><td>소프트웨어 <b>코드</b></td></tr>
-        <tr><td>결과물</td><td>완성된 문서·정리된 파일·조사 자료</td><td>수정된 코드, 커밋/PR</td></tr>
-        <tr><td>필요한 지식</td><td>프로그래밍 지식 불필요. 업무를 말로 설명하면 됨</td><td>코드/개발 맥락을 알면 더 정확함</td></tr>
-        <tr><td>EPC 사내 예시</td><td>지난 3개월 시공보고서 정리, 벤더 견적 비교표 작성</td><td>계측 데이터 처리 스크립트 수정, 사내 자동화 도구 개발</td></tr>
-      </table>
       <div class="callout tip"><span>💡</span><div><b>강사 팁</b>EPC 현장·사무 직군 대부분은 Cowork만으로 충분합니다. Code는 사내 개발팀이 프로그램이나 자동화 도구를 직접 만들 때 쓰는 모드이니, "나는 코드를 안 짜니까 Code는 몰라도 된다"고 안내하면 혼란이 줄어듭니다.</div></div>
 
-      <div class="prompt-box"><span class="label">💬 모드별 시작 질문</span>[Chat] "다음 주 시공 회의 안건 3가지를 정리해줘."
+      <h3 class="h-sub">실전 예시로 비교해보기</h3>
+      <p class="body-text">탭을 눌러서 각 모드가 실제로 어떻게 작업을 끝까지 완성하는지 확인해보세요.</p>
 
-[Cowork] "폴더에 있는 지난 3개월 일일 시공 보고서를 모두
-훑어보고, 반복적으로 나타나는 공정 지연 사유를 정리해줘."
+      <div class="tabs-nav">
+        <button class="active" onclick="showTab('mode44','chat',this)">Chat</button>
+        <button onclick="showTab('mode44','cowork',this)">Cowork</button>
+        <button onclick="showTab('mode44','code',this)">Code</button>
+      </div>
 
-[Code] "이 계측 데이터 처리 스크립트에 있는 버그를 찾아서
-수정하고, 왜 그런 버그가 생겼는지 설명해줘."</div>
+      <div class="tab-panel active" id="mode44-chat" data-group="mode44">
+        <div class="mock-window">
+          <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot b"></span><span class="mock-dot c"></span></div>
+          <div class="mock-body">
+            <div class="mock-msg-user">다음 주 시공 회의 안건 3가지를 정리해줘.</div>
+            <div class="mock-msg-claude">
+              <div class="row">1. 배관 자재 반입 지연 대책</div>
+              <div class="row">2. 3공구 용접 검사 일정 조율</div>
+              <div class="row">3. 우기 대비 안전 점검 계획</div>
+            </div>
+          </div>
+        </div>
+        <div class="callout tip"><span>💡</span><div><b>Chat의 특징</b>한 번 질문하면 한 번 답합니다. 짧고 간단한 요청, 즉시 답이 필요한 질문에 적합합니다.</div></div>
+      </div>
+
+      <div class="tab-panel" id="mode44-cowork" data-group="mode44">
+        <div class="mock-window">
+          <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot b"></span><span class="mock-dot c"></span></div>
+          <div class="mock-body">
+            <div class="mock-msg-user">폴더에 있는 지난 3개월 일일 시공 보고서를 모두 취합해서, 월별 진도율과 반복되는 지연 사유를 정리한 엑셀 리포트를 만들어줘. 표랑 간단한 차트도 넣어줘.</div>
+          </div>
+        </div>
+        <ul class="step-list">
+          <li><span class="step-num">1</span> 폴더 내 시공 일일보고서 92건 확인</li>
+          <li><span class="step-num">2</span> 월별로 분류하고 진도율 수치 추출</li>
+          <li><span class="step-num">3</span> 반복되는 지연 사유 키워드 분석 (자재 반입 지연이 최다)</li>
+          <li><span class="step-num">4</span> 엑셀 리포트 생성 — 표 + 차트 포함</li>
+        </ul>
+        <div class="mock-artifact-split">
+          <div class="mock-artifact-chat">
+            <div class="mock-msg-claude" style="max-width:100%;">리포트를 완성했습니다. 자재 반입 지연이 3개월 연속 1위 지연 사유였습니다.</div>
+          </div>
+          <div class="mock-artifact-panel">
+            <div class="doc-mock-title">2026년 2분기 시공 진도 리포트.xlsx</div>
+            <div class="mini-chart">
+              <div class="mini-chart-row"><span class="mc-label">4월</span><div class="mc-bar-wrap"><div class="mc-bar" style="width:68%;"></div></div><span class="mc-val">68%</span></div>
+              <div class="mini-chart-row"><span class="mc-label">5월</span><div class="mc-bar-wrap"><div class="mc-bar" style="width:74%;"></div></div><span class="mc-val">74%</span></div>
+              <div class="mini-chart-row"><span class="mc-label">6월</span><div class="mc-bar-wrap"><div class="mc-bar" style="width:81%;"></div></div><span class="mc-val">81%</span></div>
+            </div>
+            <div class="doc-mock-line short"></div>
+          </div>
+        </div>
+        <div class="callout tip"><span>💡</span><div><b>Cowork의 특징</b>92개 파일을 하나씩 열어볼 필요가 없습니다. 컴퓨터를 꺼도 서버에서 계속 진행되고, 완료되면 완성된 엑셀 파일로 결과를 받습니다.</div></div>
+      </div>
+
+      <div class="tab-panel" id="mode44-code" data-group="mode44">
+        <div class="mock-window">
+          <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot b"></span><span class="mock-dot c"></span></div>
+          <div class="mock-body">
+            <div class="mock-msg-user">압력 센서 로그 처리 스크립트가 이상치를 못 걸러내고 있어. 원인을 찾아서 고쳐줘.</div>
+          </div>
+        </div>
+        <ul class="step-list">
+          <li><span class="step-num">1</span> sensor_pipeline.py 코드 읽기</li>
+          <li><span class="step-num">2</span> 이상치 판별 함수(is_outlier) 로직 확인</li>
+          <li><span class="step-num">3</span> 원인 발견 — 압력이 급격히 떨어지는 음수 방향 이상치는 걸러내지 못함</li>
+          <li><span class="step-num">4</span> 코드 수정 및 테스트 데이터로 검증</li>
+        </ul>
+        <div class="code-diff"><span class="ctx">def is_outlier(value, threshold):</span><span class="del">-    if value &gt; threshold:</span><span class="add">+    if abs(value) &gt; threshold:</span><span class="ctx">        return True</span><span class="ctx">    return False</span></div>
+        <div class="mock-window">
+          <div class="mock-body" style="padding-top:0;">
+            <div class="mock-msg-claude">수정했습니다. 압력이 급격히 떨어지는 음수 방향 이상치 12건도 이제 정상적으로 감지됩니다.</div>
+          </div>
+        </div>
+        <div class="callout tip"><span>💡</span><div><b>Code의 특징</b>실제 코드 파일을 직접 열어 읽고 수정합니다. 사내 개발팀이 계측 데이터 처리, 자동화 스크립트를 유지보수할 때 이런 방식으로 활용합니다.</div></div>
+      </div>
     </section>
 
     <section class="block" id="s5-1">
@@ -690,6 +773,13 @@
     applyScale();
   }
   applyScale();
+
+  function showTab(group, name, btn){
+    document.querySelectorAll('.tab-panel[data-group="' + group + '"]').forEach(function(p){ p.classList.remove('active'); });
+    document.getElementById(group + '-' + name).classList.add('active');
+    btn.parentElement.querySelectorAll('button').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+  }
 </script>
 
 </body>
