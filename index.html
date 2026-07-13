@@ -191,6 +191,21 @@
   .doc-mock-line.accent{background:var(--accent-light);}
   .mock-source-pill{display:inline-block;font-size:11.5px;background:#EFEDE4;color:var(--text-secondary);padding:3px 10px;border-radius:999px;margin:2px 6px 2px 0;}
   @media (max-width:700px){.mock-artifact-split{flex-direction:column;}.mock-artifact-chat{border-right:none;border-bottom:1px solid var(--border);}}
+
+  /* 앱 화면 일반 목업 (실제 계정 정보 노출 없이 구조만 재현) */
+  .app-mock-modal{border:1px solid var(--border-strong);border-radius:12px;background:#fff;padding:24px 26px;margin:0 0 24px;max-width:460px;}
+  .app-mock-modal .amm-title{font-family:var(--font-heading);font-weight:700;font-size:calc(18px * var(--scale));margin-bottom:16px;}
+  .app-mock-modal label{display:block;font-size:13px;color:var(--text-secondary);margin-bottom:6px;font-weight:600;}
+  .app-mock-modal .amm-field{border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--text-muted);font-size:calc(14px * var(--scale));margin-bottom:16px;background:#FDFCF9;}
+  .app-mock-modal .amm-btn{display:inline-block;background:var(--accent);color:#fff;padding:8px 20px;border-radius:8px;font-size:14px;font-weight:600;}
+  .app-mock-list{border:1px solid var(--border-strong);border-radius:12px;overflow:hidden;background:#fff;margin:0 0 24px;}
+  .app-mock-list .aml-row{display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid var(--border);}
+  .app-mock-list .aml-row:last-child{border-bottom:none;}
+  .aml-icon{width:28px;height:28px;border-radius:7px;background:var(--accent-light);color:var(--accent-dark);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+  .aml-name{flex:1;font-size:calc(15px * var(--scale));}
+  .aml-status{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;flex-shrink:0;}
+  .aml-status.on{background:var(--tip-bg);color:var(--tip-text);}
+  .aml-status.off{background:#F1EFE8;color:var(--text-secondary);}
 </style>
 </head>
 <body>
@@ -410,6 +425,14 @@
         <li>벤더사별 견적 비교 자료 정리</li>
         <li>인허가 · 환경영향평가 서류 정리</li>
       </ul>
+      <div class="app-mock-modal">
+        <div class="amm-title">새 프로젝트 만들기</div>
+        <label>무엇을 진행하시나요?</label>
+        <div class="amm-field">배관 설계기준서 (Piping Spec)</div>
+        <label>어떤 목표를 갖고 계신가요?</label>
+        <div class="amm-field" style="height:44px;">공정별 설계 기준을 정리하고 검토 체크리스트를 관리...</div>
+        <span class="amm-btn">프로젝트 만들기</span>
+      </div>
       <div class="prompt-box"><span class="label">💬 프로젝트 내 활용</span>"이 프로젝트에 올려둔 '배관 설계기준서(Piping Spec)'를
 참고해서, 신규 배관 설계 검토 시 확인해야 할 체크리스트를
 만들어줘."</div>
@@ -510,6 +533,12 @@
       <ul class="body-list">
         <li>자료 찾기 시간 감소</li><li>반복 정리 업무 감소</li><li>협업 맥락 유지</li><li>작업 전환 비용 감소</li>
       </ul>
+      <div class="app-mock-list">
+        <div class="aml-row"><span class="aml-icon">G</span><span class="aml-name">Gmail</span><span class="aml-status on">연결됨</span></div>
+        <div class="aml-row"><span class="aml-icon">C</span><span class="aml-name">Google Calendar</span><span class="aml-status on">연결됨</span></div>
+        <div class="aml-row"><span class="aml-icon">D</span><span class="aml-name">Google Drive / 사내 드라이브</span><span class="aml-status on">연결됨</span></div>
+        <div class="aml-row"><span class="aml-icon">S</span><span class="aml-name">Slack</span><span class="aml-status off">연결 안 됨</span></div>
+      </div>
       <div class="prompt-box"><span class="label">💬 연결된 도구 활용</span>"이번 주 내 캘린더 일정을 확인해서, 설계검토회의가
 겹치는 시간대가 있는지 알려줘."
 
