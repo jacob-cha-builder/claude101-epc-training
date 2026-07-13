@@ -350,6 +350,16 @@
       <span class="section-badge">5-2</span>
       <h2 class="h-main">Artifacts — 결과물 직접 만들기</h2>
       <p class="body-text">Artifacts는 결과물을 직접 만들어내는 데 강합니다. 초안, 문서, 표, 코드, 템플릿 형태로 바로 활용할 수 있습니다.</p>
+
+      <h3 class="h-sub">Artifacts는 왜 쓰는가</h3>
+      <p class="body-text">일반 채팅은 결과물이 대화 내용 중간에 텍스트로 묻혀버립니다. Artifacts는 Claude가 만든 결과물(문서, 표, 코드, 다이어그램, 간단한 웹페이지 등)을 대화창과 분리된 별도 패널에 띄워주는 기능입니다.</p>
+      <ul class="body-list">
+        <li>결과물만 따로 보고 편집할 수 있습니다. "이 부분 고쳐줘"라고 하면 대화 전체가 아니라 그 결과물만 갱신됩니다</li>
+        <li>표·코드·HTML 같은 콘텐츠는 그 자리에서 바로 미리보기가 됩니다</li>
+        <li>사이드바의 Artifacts 목록에 남아서, 원래 대화를 다시 찾지 않아도 결과물만 바로 열람할 수 있습니다</li>
+        <li>대화 전체가 아니라 결과물만 골라서 다른 사람에게 전달할 수 있습니다</li>
+      </ul>
+
       <h3 class="h-sub">활용 예시</h3>
       <ul class="body-list">
         <li>시공 진도 보고서 초안</li>
@@ -363,6 +373,16 @@
 다음 액션 순서로 구성하고, 표 형식으로 정리해줘."</div>
       <div class="prompt-box"><span class="label">💬 후속 수정 요청</span>"지연 리스크 항목에 담당 공종과 담당자 컬럼을 추가해줘."
 "전체적으로 글씨 크기를 줄이고 한 페이지에 들어가게 압축해줘."</div>
+
+      <h3 class="h-sub">Artifacts 공유 범위 이해하기</h3>
+      <p class="body-text">Artifacts는 3단계로 공개 범위가 나뉩니다. "비공개 아니면 완전공개" 2단계가 아니라는 점이 중요합니다.</p>
+      <table class="doc-table">
+        <tr><th>단계</th><th>대상</th><th>특징</th></tr>
+        <tr><td><b>비공개</b> (기본값)</td><td>만든 사람만</td><td>아무 조치도 하지 않으면 이 상태</td></tr>
+        <tr><td><b>조직 내 공유</b> (Share)</td><td>같은 회사 조직에 로그인한 사람 전체</td><td>초대 절차 없음. 링크만 있으면 조직 내 누구나 열람 가능</td></tr>
+        <tr><td><b>완전 공개</b> (Publish)</td><td>인터넷의 누구나</td><td>Free/Pro/Max 개인 플랜에만 있는 기능. Enterprise 조직 계정에는 이 옵션이 없음</td></tr>
+      </table>
+      <div class="callout warn"><span>⚠️</span><div><b>주의</b>"조직 내 공유"는 특정 몇 명만 골라 초대하는 기능이 아닙니다. 도면, 계약금액, 벤더 견적 등 민감정보가 담긴 아티팩트를 공유하면 조직 전체 인원이 볼 수 있게 되므로 공유 전 내용을 반드시 확인하세요. 특정 소수 인원에게만 제한적으로 공유하려면 Private Project를 만들어 필요한 인원만 개별 초대해야 합니다.</div></div>
     </section>
 
     <section class="block" id="s5-3">
